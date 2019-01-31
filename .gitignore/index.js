@@ -482,13 +482,13 @@ let warns = JSON.parse(fs.readFileSync("./warn.json", "utf8"));
 
     incidentchannel.send(warnEmbed)
 
-    if(warns[wUser.id].warns == 12){
+    if(warns[wUser.id].warns == 3){
       message.guild.member(wUser).kick();
-      message.reply(`<@${wUser.id}> a etait ^^kick. Car il a atteint 14 warns. `)
+      message.reply(`<@${wUser.id}> a etait ^^kick. Car il a atteint 3 warns. `)
     }
-    if(warns[wUser.id].warns == 24){
+    if(warns[wUser.id].warns == 5){
       message.guild.member(wUser).ban();
-      message.reply(`<@${wUser.id}> a etait ^^ban. Car il a atteint 24 warns. `)
+      message.reply(`<@${wUser.id}> a etait ^^ban. Car il a atteint 5 warns. `)
     }
   }
 if(message.content.startsWith(prefix + "listwarn")){
@@ -508,9 +508,9 @@ if(message.content.startsWith ( prefix + "help")) {
   .setTitle(` ❤Voici mes catégories d'aide❤ !`)
   .setDescription(`Voici mes commandes disponible :`)
   .setThumbnail(message.author.avatarURL)
-  .addField(":🖖Modération", "Fais `*modo` pour voir mes commandes de modération🖖 !")
-  .addField("🎉 Fun", "Fais `*fun` pour voir mes commandes d'animation🎉 !")
-  .setFooter("Menu d'aide - SaSuBOT")
+  .addField("🖖Modération", "Fais `!modo` pour voir mes commandes de modération🖖 !")
+  .addField("🎉 Fun", "Fais `!fun` pour voir mes commandes d'animation🎉 !")
+  .setFooter("Menu d'aide - Brebisbot")
   .setTimestamp()
   message.channel.send(aide_embed);
 }
@@ -520,15 +520,14 @@ if(message.content.startsWith ( prefix + "modo")) {
   .setColor('RANDOM')
   .setTitle(`❤ Voici mes commandes modérations❤ !`)
   .setThumbnail(message.author.avatarURL)
-  .addField("*kick <@user>", "Kick l'utilisateur !")
-  .addField("*ban <@user>", "Ban l'utilisateur !")
-  .addField("*clear nombre", "Supprime le nombre de messages indiqué 100 message maximun")
-  .addField("*mute <@user>", "Mute l'utilisateur mentionné")
-  .addField("*unmute <@user>", "Unmute l'utilisateur mentionné")
-  .addField("*warn <@user>", "Metre un avertisement a l'utilisateur")
-  .addField("*listwarn <@user>", "Regarde combien d'avertisement a l'utilisateur")
-  .addField("A savoir aussi  14 warn = kick 24 warn", "N'oublie pas de creé le salon logs ! ")
-  .setFooter("Commande modération - SASU")
+  .addField("!kick <@user>", "Kick l'utilisateur !")
+  .addField("!ban <@user>", "Ban l'utilisateur !")
+  .addField("!clear nombre", "Supprime le nombre de messages indiqué 100 message maximun")
+  .addField("!mute <@user>", "Mute l'utilisateur mentionné")
+  .addField("!unmute <@user>", "Unmute l'utilisateur mentionné")
+  .addField("!warn <@user>", "Metre un avertisement a l'utilisateur")
+  .addField("!listwarn <@user>", "Regarde combien d'avertisement a l'utilisateur")
+  .setFooter("Commande modération - BREBIS")
   .setTimestamp()
   message.channel.send(mod_embed);
 }
@@ -538,11 +537,11 @@ if(message.content.startsWith(prefix + "fun")) {
   .setColor('RANDOM')
   .setTitle(`💛 Voici mes commandes amusantes💛 !`)
   .setThumbnail(message.author.avatarURL)
-  .addField("*ping", "Savoir le bot si il est vivant :joy: !")
-  .addField("*stats", "Le bot vous envoie des informations sur votre profil !")
-  .addField("*info", "Donne des indormations sur le bot et le serveur !")
-  .addField("*say message ", "Faire parler le bot " )
-  .setFooter("Commande fun - SaSuBOT")
+  .addField("!ping", "Savoir le bot si il est vivant :joy: !")
+  .addField("!stats", "Le bot vous envoie des informations sur votre profil !")
+  .addField("!info", "Donne des indormations sur le bot et le serveur !")
+  .addField("!say message ", "Faire parler le bot " )
+  .setFooter("Commande fun - BrebisBot")
   .setTimestamp()
   message.channel.send(fun_embed);
 }

@@ -299,7 +299,7 @@ if(message.content.startsWith(prefix+"kick") || message.content.startsWith(prefi
     if(message.content.startsWith(prefix+"invite")){
     let embed = new Discord.RichEmbed()
     .setColor('RANDOM')
-    .setDescription("**:robot:There is the link if you want to add me in your server: [Click here](https://discordapp.com/api/oauth2/authorize?client_id=539901046689103872&permissions=8&scope=bot)**\n\n**Join My Discord if you need to help :zap:\n===================================================\n\n:smile:-Best Support \n:crossed_swords:- Good staff's\n\n===================================================\n\n- :link: Invitation Link :link: -\nhttps://discord.gg/GtUVkvC**")
+    .setDescription("**:robot:There is the link if you want to add me in your server: [Click here](https://discordapp.com/api/oauth2/authorize?client_id=539901046689103872&permissions=8&scope=bot)**\n\n**Join My Discord if you need to help :zap:\n===================================================\n\n:smile:-Best Support \n:crossed_swords:- Good staff's\n\n===================================================\n\n- :link: Invitation Link :link: -**\nhttps://discord.gg/GtUVkvC**")
     .setImage("https/cdn.discordapp.com/avatars/508253132338364416/f5a88ebd301bc0a2e8cffe8a6f647f02.jpg?width=473&height=473")
     .setThumbnail(bot.user.avatarURL)
     message.author.send({embed})

@@ -17,7 +17,7 @@ asciify('Ready', {font: 'larry3d'}, function(err, res) { console.log(res)});
 const validStatus = ["idle","dnd","online"];
 setInterval(() => { bot.user.setStatus(`${validStatus[Math.floor(Math.random() * validStatus.length)]}`)}, 3000);
 
-const humeur = [ bot.users.size + " Users","в я Ξ в ι ѕ","!help","v 1.0"];
+const humeur = [ bot.users.size + " Users","B я є в ι ѕ","!help","v 1.0"];
 setInterval(() => { bot.user.setGame(`${humeur[Math.floor(Math.random() * humeur.length)]}`)}, 3000);
 });
 //events//
@@ -88,7 +88,7 @@ bot.on("message", (message) => {
         message.reply("Pong :ping_pong:").then(msg => {
             msg.react("👌")
         });
-    } else if (message.content.startsWith(prefix + "info")) {
+    } else if (message.content.startsWith(prefix + "infobot")) {
 
         let embed = new Discord.RichEmbed()
 
@@ -299,15 +299,15 @@ if(message.content.startsWith(prefix+"kick") || message.content.startsWith(prefi
     if(message.content.startsWith(prefix+"invite")){
     let embed = new Discord.RichEmbed()
     .setColor('RANDOM')
-    .setDescription("**:robot:There is the link if you want to add me in your server: [Click here](https://discordapp.com/oauth2/authorize?client_id=508253132338364416&scope=bot&permissions=8)**\n\n**Join My Discord if you need to help :zap:\n===================================================\n\n:smile:-Best Support \n:crossed_swords:- Good staff's\n\n===================================================\n\n- :link: Invitation Link :link: -\nhttps://discord.gg/pNBcwmh**")
-    .setImage("https://images-ext-1.discordapp.net/external/nHACs_SuSz1V_eX8RRqvfni0Bs0z8eT90gjoyjaqTm0/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/508253132338364416/f5a88ebd301bc0a2e8cffe8a6f647f02.jpg?width=473&height=473")
+    .setDescription("**:robot:There is the link if you want to add me in your server: [Click here](https://discordapp.com/api/oauth2/authorize?client_id=539901046689103872&permissions=8&scope=bot)**\n\n**Join My Discord if you need to help :zap:\n===================================================\n\n:smile:-Best Support \n:crossed_swords:- Good staff's\n\n===================================================\n\n- :link: Invitation Link :link: -\nhttps://discord.gg/GtUVkvC**")
+    .setImage("https/cdn.discordapp.com/avatars/508253132338364416/f5a88ebd301bc0a2e8cffe8a6f647f02.jpg?width=473&height=473")
     .setThumbnail(bot.user.avatarURL)
     message.author.send({embed})
     message.reply("**Check your private message :mailbox_with_mail: **");
 }
 
 
-if(message.content.startsWith(prefix+"bc")){
+if(message.content.startsWith(prefix+"prune")){
 let embed = new Discord.RichEmbed()
     if(!message.member.hasPermission("MANAGE_MESSAGES") && message.author.id != "132962262410461184"){
 embed.setColor('RANDOM')
@@ -317,13 +317,13 @@ return message.channel.send({embed});
 if(args.length < 1) {
   let embed = new Discord.RichEmbed()
 embed.setColor('RANDOM')
-embed.setDescription("please precise number for message to clean\n**Ex: "+prefix+"clean 10**")
+embed.setDescription("please precise number for message to clean\n**Ex: "+prefix+"prune 10**")
 return message.channel.send({embed});
 }
 if(isNaN(args)) {
   let embed = new Discord.RichEmbed()
 embed.setColor('RANDOM')
-embed.setDescription("please precise number for message to clean\n**Ex: "+prefix+"clean 10**")
+embed.setDescription("please precise number for message to clean\n**Ex: "+prefix+"prune 10**")
 return message.channel.send({embed});
 }
 if(Number(args) > 99) {
@@ -509,7 +509,7 @@ if(message.content.startsWith ( prefix + "help")) {
   .setDescription(`Voici mes commandes disponible :`)
   .setThumbnail(message.author.avatarURL)
   .addField("🖖Modération", "Fais `!modo` pour voir mes commandes de modération🖖 !")
-  .addField("🎉 Fun", "Fais `!fun` pour voir mes commandes d'animation🎉 !")
+  .addField("🎉 Info", "Fais `!info` pour voir mes commandes 🎉 !")
   .setFooter("Menu d'aide - Brebisbot")
   .setTimestamp()
   message.channel.send(aide_embed);
@@ -532,20 +532,21 @@ if(message.content.startsWith ( prefix + "modo")) {
   message.channel.send(mod_embed);
 }
 
-if(message.content.startsWith(prefix + "fun")) {
+if(message.content.startsWith(prefix + "info")) {
   var fun_embed = new Discord.RichEmbed()
   .setColor('RANDOM')
-  .setTitle(`💛 Voici mes commandes amusantes💛 !`)
+  .setTitle(`💛 Voici mes commandes 💛 !`)
   .setThumbnail(message.author.avatarURL)
   .addField("!ping", "Savoir le bot si il est vivant :joy: !")
   .addField("!stats", "Le bot vous envoie des informations sur votre profil !")
-  .addField("!info", "Donne des indormations sur le bot et le serveur !")
-  .addField("!say message ", "Faire parler le bot " )
-  .setFooter("Commande fun - BrebisBot")
+  .addField("!infobot", "Donne des indormations sur le bot et le serveur !")
+  .addField("!say *message* ", "Faire parler le bot ")
+  .addField("!3D *message*", "Ecrit votre texte en 3D")
+
+  .setFooter("Commandes - BrebisBot")
   .setTimestamp()
   message.channel.send(fun_embed);
 }
-
 
 });
 bot.login(token);

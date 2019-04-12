@@ -17,8 +17,21 @@ asciify('Ready', {font: 'larry3d'}, function(err, res) { console.log(res)});
 const validStatus = ["idle","dnd","online"];
 setInterval(() => { bot.user.setStatus(`${validStatus[Math.floor(Math.random() * validStatus.length)]}`)}, 3000);
 
-const humeur = [ bot.users.size + " Users","B я є в ι ѕ","!help","v 1.0"];
-setInterval(() => { bot.user.setGame(`${humeur[Math.floor(Math.random() * humeur.length)]}`)}, 3000);
+const activities_list = [
+  "𝓐𝓾𝓓𝓓 👅",
+  "ℬ𝓻𝒆𝓾𝓱 ℬ𝓻𝒆𝓾𝓱 🦄",
+  "𝓐𝓫𝓸𝓷𝓷𝒆 𝓽𝓸𝓲 🍑",
+  "𝓢𝓾𝓻 𝓨𝓸𝓾𝓽𝓾𝓫𝒆 🔞"
+    ];
+Sasuke.on('ready', () => {
+    setInterval(() => {
+        const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
+        Sasuke.user.setActivity(activities_list[index],{
+            type: "STREAMING",
+            url: "https://www.twitch.tv/twitch"});
+ 
+    }, 3000); // 1000 = 1seconde
+
 });
 //events//
 bot.on("guildCreate", guild => {
